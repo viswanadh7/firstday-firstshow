@@ -21,7 +21,7 @@ function Actor() {
         instance
             .get(URL)
             .then((res) => {
-                console.log(res.data)
+                // console.log(res.data)
                 setPersonDetails(res.data)
             })
             .catch((error) => console.log(error.message));

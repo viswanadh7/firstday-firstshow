@@ -23,13 +23,13 @@ function Cast({ id }) {
         instance
             .get(URL)
             .then((res) => {
-                console.log(res.data.cast)
+                // console.log(res.data.cast)
                 setMovieCast(res.data.cast)
             })
             .catch((error) => console.log(error));
     }, [URL]);
     return (
-        <div className='px-5 mb-10'>
+        <div className='px-5 my-10'>
             <Swiper
                 breakpoints={{
                     640: {
