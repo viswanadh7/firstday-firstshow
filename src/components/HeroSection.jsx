@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import instance from '../utils/instance'
+import { Link } from 'react-router-dom';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -30,7 +31,7 @@ function HeroSection() {
                 spaceBetween={0}
                 loop={true}
                 autoplay={{
-                    delay: 500,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
@@ -39,14 +40,13 @@ function HeroSection() {
                 {movie?.map((eachMovie) => (
                     <SwiperSlide key={eachMovie.id}>
                         <div className='relative'>
-                            <img src={`https://image.tmdb.org/t/p/original/${eachMovie?.backdrop_path}`} className='h-1/2 md:h-screen w-screen bg-cover' alt="" />
+                            <img src={`https://image.tmdb.org/t/p/original/${eachMovie?.backdrop_path}`} className='h-1/2 md:max-h-screen lg:h-screen w-screen bg-cover' alt="" />
                             {/* <img src={`https://image.tmdb.org/t/p/original/${eachMovie?.poster_path}`} className='h-2/3 w-screen md:hidden bg-cover' alt="" /> */}
-                            <div className='absolute bottom-0 lg:bottom-40 text-white px-5'>
-                                <h1 className='lg:text-6xl font-semibold'>{eachMovie?.title}</h1>
-                                {/* <ul className='flex gap-5'>
-                            {movie?.genres.map((item) => (<li>{item.name}</li>))}
-                        </ul> */}
-                                {/* <p className='w-1/2'>{eachMovie?.overview}</p> */}
+                            <div className='absolute bottom-0 lg:bottom-20 text-white text-shadow px-5'>
+                                <Link to={`/${eachMovie.id}`} className='md:text-3xl lg:text-6xl font-semibold [text-shadow:_10px_10px_15px_black]'>{eachMovie?.title}</Link>
+                                <p>Rating : {(eachMovie.vote_average)?.toString().slice(0, 3)}</p>
+                                <p className=''>Released on : {eachMovie.release_date}</p>
+                                <p className='w-2/3 hidden md:block'>{eachMovie?.overview}</p>
                             </div>
                         </div>
                     </SwiperSlide>

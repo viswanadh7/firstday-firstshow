@@ -30,6 +30,7 @@ function Cast({ id }) {
     }, [URL]);
     return (
         <div className='px-5 my-10'>
+            <h1 className='text-xl mb-3'>Cast</h1>
             <Swiper
                 breakpoints={{
                     640: {

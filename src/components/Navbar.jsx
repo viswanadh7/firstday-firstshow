@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import instance from '../utils/instance'
 
 function Navbar() {
-    const [movieName, setMovieName] = useState('bahubali')
+    const [movieName, setMovieName] = useState('')
     const [moviesList, setMoviesList] = useState()
     let options = { params: { query: movieName, include_adult: 'false', language: 'en-US', page: '1' } }
     useEffect(() => {
@@ -26,7 +26,7 @@ function Navbar() {
                     <div>Button</div>
                 </nav>
                 <div className='md:hidden mb-2'>
-                    <input id='movieInput' onChange={(e) => setMovieName(e.target.value)} value={movieName} className='w-full py-1 px-3 rounded-md text-white bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600' type="text" placeholder='Search for any movie or tv shows...' />
+                    <input id='movieInput' onChange={(e) => setMovieName(e.target.value)} value={movieName} className='w-full py-2 px-3 rounded-md text-white bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600' type="text" placeholder='Search for any movie or tv shows...' />
                 </div>
             </div>
             <div className='flex justify-center'>

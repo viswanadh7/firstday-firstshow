@@ -107,6 +107,7 @@ function Detail() {
                 </div>
             </div>
             <Cast id={params.id} />
+            <hr className='border-gray-700' />
             <Similar id={params.id} />
         </div>
     )

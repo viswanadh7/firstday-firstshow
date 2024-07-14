@@ -22,36 +22,36 @@ function Similar({ id }) {
             .catch((error) => console.log(error.message));
     }, [URL]);
     return (
-        <div className=''>
-            <div className='px-5'>
-                <Swiper
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 2,
-                        },
-                        768: {
-                            slidesPerView: 4,
-                        },
-                        1024: {
-                            slidesPerView: 5,
-                        },
-                    }}
-                    slidesPerView={2}
-                    spaceBetween={20}
-                    className="mySwiper"
-                >
-                    {similarMovies?.map((eachMovie) => (
-                        <SwiperSlide key={eachMovie.id}>
-                            <Link to={`/${eachMovie.id}`}>
-                                <img src={`https://image.tmdb.org/t/p/original/${eachMovie.poster_path}`} alt="" />
-                                <div>
-                                    <h1>{eachMovie.title}</h1>
-                                </div>
-                            </Link>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
+        <div className='px-5 mb-10'>
+            <h1 className='text-xl mt-5 mb-2'>Similar movies</h1>
+            <Swiper
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 4,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                    },
+                }}
+                slidesPerView={2}
+                spaceBetween={20}
+                className="mySwiper"
+            >
+                {similarMovies?.map((eachMovie) => (
+                    <SwiperSlide key={eachMovie.id}>
+                        <Link to={`/${eachMovie.id}`}>
+                            <img src={`https://image.tmdb.org/t/p/original/${eachMovie.poster_path}`} alt="" />
+                            <div>
+                                <h1 className='text-xl'>{eachMovie.title}</h1>
+                                <p>Rating :{(eachMovie.vote_average)?.toString().slice(0, 3)}</p>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
     )
 }
