@@ -81,12 +81,7 @@ function Navbar() {
                             </div>
                             <div className="col-span-5">
                                 <h1>{eachMovie.title}</h1>
-                                <p>
-                                    Rating :{" "}
-                                    {eachMovie.vote_average
-                                        ?.toString()
-                                        .slice(0, 3)}
-                                </p>
+                                <p>Rating : {eachMovie.vote_average?.toString().slice(0, 3)} <i className="fa-solid fa-star text-yellow-400"></i></p>
                                 <p>Released on : {eachMovie.release_date}</p>
                             </div>
                         </Link>

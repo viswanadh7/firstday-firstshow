@@ -3,11 +3,7 @@ import instance from '../utils/instance';
 import { Link } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Grid } from 'swiper/modules';
-// Import Swiper styles
 import 'swiper/css';
-
-import Carousel from 'react-grid-carousel'
 
 function Latest() {
     const [latestMovies, setLatestMovies] = useState()
@@ -30,7 +26,7 @@ function Latest() {
                             slidesPerView: 4,
                         },
                         1024: {
-                            slidesPerView: 5,
+                            slidesPerView: 6,
                         },
                     }}
                     slidesPerView={2}
@@ -43,7 +39,7 @@ function Latest() {
                                 <img src={`https://image.tmdb.org/t/p/original/${eachMovie.poster_path}`} alt="" />
                                 <div>
                                     <h1 className='text-xl'>{eachMovie.title}</h1>
-                                    <p>Rating :{(eachMovie.vote_average)?.toString().slice(0, 3)}</p>
+                                    <p>Rating : {(eachMovie.vote_average)?.toString().slice(0, 3)} <i className="fa-solid fa-star text-yellow-400"></i></p>
                                 </div>
                             </Link>
                         </SwiperSlide>

@@ -34,11 +34,11 @@ function TopRated() {
                             slidesPerView: 4,
                         },
                         1024: {
-                            slidesPerView: 5,
+                            slidesPerView: 6,
                         },
                     }}
                     slidesPerView={2}
-                    spaceBetween={10}
+                    spaceBetween={20}
                     className="mySwiper"
                 >
                     {topRatedMovies?.map((eachMovie) => (
@@ -47,7 +47,7 @@ function TopRated() {
                                 <img src={`https://image.tmdb.org/t/p/original/${eachMovie.poster_path}`} className='' alt="" />
                                 <div>
                                     <h1 className='text-xl'>{eachMovie.title}</h1>
-                                    <p>Rating :{(eachMovie.vote_average)?.toString().slice(0, 3)}</p>
+                                    <p>Rating :{(eachMovie.vote_average)?.toString().slice(0, 3)} <i className="fa-solid fa-star text-yellow-400"></i></p>
                                 </div>
                             </Link>
                         </SwiperSlide>

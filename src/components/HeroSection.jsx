@@ -31,7 +31,7 @@ function HeroSection() {
                 spaceBetween={0}
                 loop={true}
                 autoplay={{
-                    delay: 3000,
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
@@ -44,7 +44,7 @@ function HeroSection() {
                             {/* <img src={`https://image.tmdb.org/t/p/original/${eachMovie?.poster_path}`} className='h-2/3 w-screen md:hidden bg-cover' alt="" /> */}
                             <div className='absolute bottom-0 lg:bottom-20 text-white text-shadow px-5'>
                                 <Link to={`/${eachMovie.id}`} className='md:text-3xl lg:text-6xl font-semibold [text-shadow:_10px_10px_15px_black]'>{eachMovie?.title}</Link>
-                                <p>Rating : {(eachMovie.vote_average)?.toString().slice(0, 3)}</p>
+                                <p className='mt-3'>Rating : {(eachMovie.vote_average)?.toString().slice(0, 3)} <i className="fa-solid fa-star text-yellow-400"></i></p>
                                 <p className=''>Released on : {eachMovie.release_date}</p>
                                 <p className='w-2/3 hidden md:block'>{eachMovie?.overview}</p>
                             </div>
