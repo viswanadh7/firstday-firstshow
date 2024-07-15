@@ -43,12 +43,12 @@ function Actor() {
     return (
         <div>
             <div className='lg:grid grid-cols-10 items-center gap-10 px-5 md:px-40 h-screen'>
-                <div className='col-span-4 h-3/4 md:h-screen py-16'>
+                <div className='col-span-4 h-3/4 md:h-1/2 lg:h-screen py-16'>
                     <img src={`https://image.tmdb.org/t/p/w500/${personDetails?.profile_path}`} className='h-full w-full' alt="" />
-                    <div className='flex justify-between my-3'>
-                        <a href="">iMDB</a>
-                        <a href="">iMDB</a>
-                        <a href="">iMDB</a>
+                    <div className='flex justify-between px-5 my-3 text-3xl'>
+                        <a href={`https://www.instagram.com/${socialID?.instagram_id}/`} target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href={`https://x.com/${socialID?.twitter_id}/`} target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href={`https://www.imdb.com/name/${socialID?.imdb_id}/`} target="_blank"><i class="fa-brands fa-imdb"></i></a>
                     </div>
                 </div>
                 <div className='col-span-6'>

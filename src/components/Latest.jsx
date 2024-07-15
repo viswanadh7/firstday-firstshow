@@ -20,7 +20,7 @@ function Latest() {
     }, []);
     return (
         <div className="">
-            <div className='px-5 md:hidden'>
+            <div className='px-5'>
                 <Swiper
                     breakpoints={{
                         640: {
@@ -49,42 +49,6 @@ function Latest() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </div>
-            <div className='hidden md:block'>
-                <Carousel
-                    cols={5}
-                    rows={2}
-                    gap={20}
-                    responsiveLayout={[
-                        {
-                            breakpoint: 1200,
-                            cols: 5,
-                            rows: 2,
-                        },
-                        {
-                            breakpoint: 990,
-                            cols: 4,
-                            rows: 2,
-                        }
-                    ]}
-                // mobileBreakpoint={670}
-                >
-                    {latestMovies?.map((eachMovie) => (
-                        <Carousel.Item>
-                            <Link to={`${eachMovie.id}`}>
-                                <img
-                                    src={`https://image.tmdb.org/t/p/original/${eachMovie.poster_path}`}
-                                    className="h-[300px] w-full"
-                                    alt=""
-                                />
-                                <div>
-                                    <h1 className="text-xl">{eachMovie.title}</h1>
-                                    <p>Rating :{(eachMovie.vote_average)?.toString().slice(0, 3)}</p>
-                                </div>
-                            </Link>
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
             </div>
         </div>
     );
