@@ -36,8 +36,10 @@ function Latest() {
                     {latestMovies?.map((eachMovie) => (
                         <SwiperSlide key={eachMovie.id}>
                             <Link to={`/${eachMovie.id}`}>
-                                <img src={`https://image.tmdb.org/t/p/original/${eachMovie.poster_path}`} alt="" />
-                                <div>
+                                <div className='overflow-hidden'>
+                                    <img className='hover:scale-110 duration-300' src={`https://image.tmdb.org/t/p/original/${eachMovie.poster_path}`} alt="" />
+                                </div>
+                                <div className=''>
                                     <h1 className='text-xl'>{eachMovie.title}</h1>
                                     <p>Rating : {(eachMovie.vote_average)?.toString().slice(0, 3)} <i className="fa-solid fa-star text-yellow-400"></i></p>
                                 </div>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import instance from '../utils/instance'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Similar from './Similar'
 import Cast from './Cast'
 
 function Detail() {
     const [movieDetails, setMovieDetails] = useState()
+    const [trailerID, setTrailerID] = useState()
     const params = useParams()
     const URL = `https://api.themoviedb.org/3/movie/${params.id}`;
 
@@ -15,8 +16,19 @@ function Detail() {
             .then((res) => {
                 // console.log(res.data);
                 setMovieDetails(res.data);
-            })
-            .catch((error) => console.log(error.message));
+            }).catch((error) => console.log(error.message));
+        // instance
+        //     .get(URL_TRAILER)
+        //     .then((res) => {
+        //         console.log(res.data.results);
+        //         res.data.results.map((item) => {
+        //             if (item.site == 'YouTube' && item.type == 'Trailer') {
+        //                 setTrailerID(item.key)
+        //             }
+        //         })
+        //         // setMovieDetails(res.data);
+        //     })
+        //     .catch((error) => console.log(error.message));
     }, [URL]);
     return (
         <div>
@@ -41,8 +53,9 @@ function Detail() {
                             </ul>
                         </div>
                         {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/Kdr5oedn7q8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
-                        <div className='w-full py-1 mb-5 text-lg border flex justify-center'>
-                            <a className='' href={`https://www.youtube.com/embed/Kdr5oedn7q8`}>Watch trailer</a>
+                        <div className='w-full mb-5 text-lg flex justify-between gap-10 px-10'>
+                            <Link to='trailer' className='border w-full text-center'>Watch trailer</Link>
+                            <Link className='border w-full text-center' to='gallery/backdrops'>Gallery</Link>
                         </div>
                         <p className='text-lg'>Overview : </p>
                         <p>{movieDetails?.overview}</p>
@@ -69,8 +82,9 @@ function Detail() {
                             </ul>
                         </div>
                         {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/Kdr5oedn7q8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
-                        <div className='w-full py-1 mb-5 text-lg border flex justify-center'>
-                            <a className='' href={`https://www.youtube.com/embed/Kdr5oedn7q8`}>Watch trailer</a>
+                        <div className='w-full mb-5 text-lg flex justify-between gap-5'>
+                            <Link to='trailer' className='border w-full text-center'>Watch trailer</Link>
+                            <Link className='border w-full text-center' to='gallery/backdrops'>Gallery</Link>
                         </div>
                         <p className='text-lg'>Overview : </p>
                         <p>{movieDetails?.overview}</p>
@@ -98,8 +112,9 @@ function Detail() {
                             </ul>
                         </div>
                         {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/Kdr5oedn7q8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
-                        <div className='w-full py-1 mb-5 text-lg border flex justify-center'>
-                            <a className='' href={`https://www.youtube.com/embed/Kdr5oedn7q8`}>Watch trailer</a>
+                        <div className='w-full mb-5 text-lg flex flex-col gap-5'>
+                            <Link to='trailer' className='border w-full text-center'>Watch trailer</Link>
+                            <Link className='border w-full text-center' to='gallery/backdrops'>Gallery</Link>
                         </div>
                         <p className='text-lg'>Overview : </p>
                         <p>{movieDetails?.overview}</p>
