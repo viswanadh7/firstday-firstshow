@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import instance from '../utils/instance'
 import { Link } from 'react-router-dom';
 
@@ -6,22 +6,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
+import { useQuery } from '@tanstack/react-query';
 
 
 
 
 function TopRated() {
-    const [topRatedMovies, setTopRatedMovies] = useState()
-    useEffect(() => {
-        const URL = "https://api.themoviedb.org/3/movie/top_rated";
-        instance
-            .get(URL)
-            .then((res) => {
-                // console.log(res.data);
-                setTopRatedMovies(res.data.results);
-            })
-            .catch((error) => console.log(error.message));
-    }, []);
+    const URL = "https://api.themoviedb.org/3/movie/top_rated";
+
+
+    const { data } = useQuery({ queryKey: ['getTopRated'], queryFn: () => { return instance.get(URL) } })
     return (
         <div className="">
             <div className='px-5'>
@@ -41,7 +35,7 @@ function TopRated() {
                     spaceBetween={20}
                     className="mySwiper"
                 >
-                    {topRatedMovies?.map((eachMovie) => (
+                    {data?.data.results.map((eachMovie) => (
                         <SwiperSlide key={eachMovie.id}>
                             <Link to={`/${eachMovie.id}`}>
                                 <div className='overflow-hidden'>

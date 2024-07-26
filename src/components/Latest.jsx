@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import instance from '../utils/instance';
 import { Link } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { useQuery } from '@tanstack/react-query';
 
 function Latest() {
-    const [latestMovies, setLatestMovies] = useState()
-    useEffect(() => {
-        const URL = "https://api.themoviedb.org/3/movie/now_playing";
-        instance
-            .get(URL)
-            .then((res) => setLatestMovies(res.data.results))
-            .catch((error) => console.log(error.message));
-    }, []);
+    const URL = "https://api.themoviedb.org/3/movie/now_playing";
+    const { data } = useQuery({ queryKey: ['getLatest'], queryFn: () => { return instance.get(URL) } })
     return (
         <div className="">
             <div className='px-5'>
@@ -33,7 +28,7 @@ function Latest() {
                     spaceBetween={20}
                     className="mySwiper"
                 >
-                    {latestMovies?.map((eachMovie) => (
+                    {data?.data.results.map((eachMovie) => (
                         <SwiperSlide key={eachMovie.id}>
                             <Link to={`/${eachMovie.id}`}>
                                 <div className='overflow-hidden'>

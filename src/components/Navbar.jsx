@@ -38,7 +38,7 @@ function Navbar() {
                             id="movieInput"
                             onChange={(e) => setMovieName(e.target.value)}
                             value={movieName}
-                            className="w-full py-1 px-3 rounded-md text-white bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                            className="w-full py-1 px-3 rounded text-white bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600"
                             type="text"
                             placeholder="Search for any movie or tv shows..."
                         />
